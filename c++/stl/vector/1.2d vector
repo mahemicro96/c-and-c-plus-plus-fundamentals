@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+#define M 3
+#define N 4
+int main()
+{
+	
+	int default_value = 1;
+	vector<vector<int>> matrix;
+	for (int i = 0; i < M; i++)
+	{
+		vector<int> v;
+		for (int j = 0; j < N; j++)
+			v.push_back(default_value);
+		// push back above one-dimensional vector
+		matrix.push_back(v);
+	}
+		// Displaying the 2D vector 
+    for (int i = 0; i < matrix.size(); i++) { 
+        for (int j = 0; j < matrix[i].size(); j++) 
+            cout << matrix[i][j] << " "; 
+        cout << endl; 
+
+	return 0;
+}
