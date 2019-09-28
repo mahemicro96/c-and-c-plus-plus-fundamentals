@@ -1,0 +1,61 @@
+sort ascinding:
+sort(v.begin(),v.end())
+
+sort by first value descinding using fun:
+-----------------------------------------
+#include <iostream>
+#include <utility>
+#include <vector>
+#include <algorithm>
+
+typedef std::pair<int, int> pair;
+
+int main()
+{
+	std::vector<pair> v = { { 1, 2 }, { 6, 4 }, { 3, 4 }, { 6, 1 } };
+
+	// sorts pairs in increasing order of their first value
+	std::sort(v.begin(), v.end());
+
+	// sorts pairs in decreasing order of their first value
+	// std::sort(v.begin(), v.end(), std::greater<>());
+
+	for (const pair &p: v) {
+		std::cout << '{' << p.first << ',' << p.second << '}' << '\n';
+	}
+
+	return 0;
+}
+
+sort by second value:(ascending)
+---------------------
+#include <iostream>
+#include <utility>
+#include <vector>
+#include <algorithm>
+
+typedef std::pair<int, int> pair;
+
+bool fn(const pair& x, const pair& y)
+{
+	if (x.second != y.second)
+		return x.second < y.second;
+    //return x.second>y.second(descending)
+
+	return x.first < y.first;
+   //return x.first>y.first(descending)
+
+}
+
+int main()
+{
+	std::vector<pair> v = { { 1, 2 }, { 6, 4 }, { 3, 4 }, { 4, 1 } };
+
+	std::sort(v.begin(), v.end(), fn);
+
+	for (const pair &p: v) {
+		std::cout << '{' << p.first << ',' << p.second << '}' << '\n';
+	}
+
+	return 0;
+}
